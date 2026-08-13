@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f7f3ea" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="日语学习" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="icon" href="icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>日语学习</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow" id="todayLabel"></p>
+        <h1>日语学习</h1>
+      </div>
+      <button class="icon-btn" id="settingsBtn" aria-label="设置">⚙︎</button>
+    </header>
+
+    <main>
+      <section class="hero-card">
+        <div>
+          <span class="tag">今日</span>
+          <h2 id="heroTitle">今天学什么</h2>
+          <p id="heroSub">完成一项，就少一项。</p>
+        </div>
+        <div class="streak">
+          <strong id="streakCount">0</strong>
+          <span>连续学习天</span>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h3>今日任务</h3>
+          <button class="text-btn" id="addTaskBtn">+ 临时任务</button>
+        </div>
+        <div id="taskList" class="task-list"></div>
+      </section>
+
+      <section class="grid-2">
+        <article class="card">
+          <div class="section-head compact">
+            <h3>《综合日语》进度</h3>
+            <button class="text-btn" id="editLessonBtn">编辑</button>
+          </div>
+          <p class="lesson-main">第 <strong id="lessonNumber">1</strong> 课</p>
+          <div class="progress"><span id="lessonProgressBar"></span></div>
+          <div id="lessonChecks" class="mini-checks"></div>
+        </article>
+
+        <article class="card">
+          <h3>今日词汇</h3>
+          <div class="stat-row"><span>新词</span><strong><span id="newWordsDone">0</span>/<span id="newWordsGoal">10</span></strong></div>
+          <div class="stat-row"><span>复习</span><strong><span id="reviewWordsDone">0</span>/<span id="reviewWordsGoal">10</span></strong></div>
+          <div class="button-row">
+            <button class="small-btn" id="logWordsBtn">记录</button>
+            <button class="small-btn ghost" id="vocabBtn">词库</button>
+          </div>
+        </article>
+      </section>
+
+      <section class="card">
+        <div class="section-head compact">
+          <h3>本周听力</h3>
+          <button class="text-btn" id="logListeningBtn">+ 记录</button>
+        </div>
+        <div id="listeningStats" class="listen-grid"></div>
+      </section>
+
+      <section class="card weekend-card" id="weekendTestCard">
+        <div>
+          <span class="tag">周末</span>
+          <h3>本周单词测试</h3>
+          <p>日→中、中→日、听音辨词、简单语境。</p>
+        </div>
+        <button class="primary-btn" id="startTestBtn">开始测试</button>
+      </section>
+
+      <section class="card">
+        <div class="calendar-head">
+          <button class="icon-btn" id="prevMonthBtn">‹</button>
+          <h3 id="calendarTitle"></h3>
+          <button class="icon-btn" id="nextMonthBtn">›</button>
+        </div>
+        <div class="weekdays"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div>
+        <div id="calendar" class="calendar"></div>
+      </section>
+
+      <section class="grid-2">
+        <article class="card center">
+          <span class="muted">本周完成率</span>
+          <strong class="big" id="weekRate">0%</strong>
+        </article>
+        <article class="card center">
+          <span class="muted">已掌握词汇</span>
+          <strong class="big" id="masteredWords">0</strong>
+        </article>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-btn active" data-scroll="top">今天</button>
+      <button class="nav-btn" data-scroll="calendar">日历</button>
+      <button class="nav-btn" id="quickTestBtn">测试</button>
+      <button class="nav-btn" id="backupBtn">备份</button>
+    </nav>
+  </div>
+
+  <dialog id="modal" class="modal">
+    <form method="dialog" class="modal-card" id="modalContent"></form>
+  </dialog>
+
+  <input type="file" id="importInput" accept="application/json" hidden />
+
+  <script src="app.js"></script>
+</body>
+</html>
