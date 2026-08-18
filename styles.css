@@ -79,7 +79,7 @@ button{cursor:pointer}
 }
 .hero-card{
   position:relative;
-  min-height:194px;
+  min-height:112px;
   padding:22px;
   display:flex;
   justify-content:space-between;
@@ -92,8 +92,8 @@ button{cursor:pointer}
   position:absolute;
   left:22px;
   right:22px;
-  bottom:18px;
-  height:72px;
+  bottom:16px;
+  height:38px;
   border-radius:24px;
   background:var(--soft);
   z-index:0;
@@ -118,63 +118,6 @@ button{cursor:pointer}
   font-weight:850;
   box-shadow:0 8px 18px rgba(123,70,232,.22);
 }
-.study-charm{
-  position:absolute!important;
-  left:50%;
-  top:42px;
-  width:120px;
-  height:122px;
-  transform:translateX(-36%);
-  z-index:2!important;
-}
-.charm-card{
-  position:absolute;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:74px;
-  height:88px;
-  border-radius:28px;
-  color:#171717;
-  font-size:34px;
-  font-weight:950;
-  box-shadow:0 16px 24px rgba(24,19,31,.12);
-}
-.charm-card.kana{
-  left:4px;
-  top:0;
-  background:var(--sun);
-  transform:rotate(-10deg);
-}
-.charm-card.book{
-  right:2px;
-  top:28px;
-  background:var(--pink);
-  color:white;
-  transform:rotate(9deg);
-}
-.charm-card:after{
-  content:"";
-  position:absolute;
-  left:23px;
-  right:23px;
-  bottom:20px;
-  height:11px;
-  border-bottom:3px solid currentColor;
-  border-radius:0 0 20px 20px;
-  opacity:.8;
-}
-.charm-dot{position:absolute;right:0;top:7px;width:18px;height:18px;border-radius:50%;background:var(--mint);box-shadow:28px 64px 0 var(--accent)}
-.streak{
-  min-width:86px;
-  text-align:center;
-  padding:13px 10px;
-  border-radius:20px;
-  background:#fff6d9;
-  border:1px solid #ffe9a3;
-}
-.streak strong{font-size:30px;line-height:1;display:block;font-weight:950}
-.streak span{font-size:11px;color:#927a28}
 .section{margin-top:24px}
 .section-head{
   display:flex;
@@ -438,10 +381,8 @@ button{cursor:pointer}
   .app-shell{padding-left:14px;padding-right:14px}
   .topbar h1{font-size:26px}
   .grid-2{grid-template-columns:1fr}
-  .hero-card{min-height:210px}
-  .hero-card h2{max-width:170px}
-  .study-charm{left:58%;top:54px;transform:translateX(-36%) scale(.9)}
-  .streak{position:absolute!important;right:18px;bottom:22px}
+  .hero-card{min-height:112px}
+  .hero-card h2{max-width:none}
   .listen-grid{grid-template-columns:1fr 1fr}
   .weekend-card{align-items:flex-start;flex-direction:column}
   .primary-btn{width:100%}
