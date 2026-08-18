@@ -79,7 +79,7 @@ button{cursor:pointer}
 }
 .hero-card{
   position:relative;
-  min-height:112px;
+  min-height:154px;
   padding:22px;
   display:flex;
   justify-content:space-between;
@@ -87,17 +87,7 @@ button{cursor:pointer}
   align-items:flex-start;
   overflow:hidden;
 }
-.hero-card:after{
-  content:"";
-  position:absolute;
-  left:22px;
-  right:22px;
-  bottom:16px;
-  height:38px;
-  border-radius:24px;
-  background:var(--soft);
-  z-index:0;
-}
+.hero-card:after{display:none}
 .hero-card>div{position:relative;z-index:1}
 .hero-card h2{
   max-width:210px;
@@ -393,3 +383,33 @@ button{cursor:pointer}
   .restore-item{align-items:stretch;flex-direction:column}
   .restore-actions .small-btn{flex:1;padding:8px 10px}
 }
+
+.practice-timer{
+  position:absolute;
+  z-index:2;
+  left:22px;
+  right:22px;
+  bottom:16px;
+  min-height:48px;
+  padding:0 16px;
+  border:1px solid transparent;
+  border-radius:24px;
+  background:var(--soft);
+  color:var(--ink);
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:10px;
+  text-align:left;
+  transition:background .18s ease,border-color .18s ease,transform .18s ease;
+}
+.practice-timer:active{transform:scale(.985)}
+.practice-timer:focus-visible{outline:3px solid rgba(123,70,232,.28);outline-offset:2px}
+.practice-timer strong{font-size:18px;font-variant-numeric:tabular-nums;text-align:center}
+.practice-label,.practice-status{font-size:12px;font-weight:800;color:var(--muted)}
+.practice-timer.running{background:var(--accent-soft);border-color:#ded0ff}
+.practice-timer.running .practice-status{color:var(--accent)}
+.lesson-advance-note{min-height:18px;margin:9px 0 0;color:var(--accent);font-size:12px;font-weight:800}
+@media(max-width:520px){.practice-timer{grid-template-columns:auto 1fr}.practice-status{grid-column:1/-1;text-align:center;margin-top:-7px;margin-bottom:5px}.hero-card{min-height:170px}}
+
+@media(prefers-reduced-motion:reduce){.practice-timer{transition:none}.practice-timer:active{transform:none}}
