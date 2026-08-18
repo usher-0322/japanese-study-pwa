@@ -20,7 +20,10 @@
         <p class="eyebrow" id="todayLabel"></p>
         <h1>日语学习</h1>
       </div>
-      <button class="icon-btn" id="settingsBtn" aria-label="设置">⚙︎</button>
+      <div class="top-actions">
+        <button class="sync-pill" id="syncBtn" type="button">本地</button>
+        <button class="icon-btn" id="settingsBtn" aria-label="设置">⚙︎</button>
+      </div>
     </header>
 
     <main>
@@ -119,6 +122,8 @@
 
   <input type="file" id="importInput" accept="application/json" hidden />
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
