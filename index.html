@@ -6,23 +6,23 @@
   <meta name="theme-color" content="#f7f3ea" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-  <meta name="apple-mobile-web-app-title" content="日语学习" />
+  <meta name="apple-mobile-web-app-title" content="日本語ノート" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="apple-touch-icon" href="icon-192.png" />
   <link rel="icon" href="icon-192.png" />
   <link rel="stylesheet" href="styles.css" />
-  <title>日语学习</title>
+  <title>日本語ノート</title>
 </head>
 <body>
   <div class="app-shell">
     <header class="topbar">
       <div>
         <p class="eyebrow" id="todayLabel"></p>
-        <h1>日语学习</h1>
+        <h1>日本語ノート</h1>
       </div>
       <div class="top-actions">
-        <button class="sync-pill" id="syncBtn" type="button">本地</button>
-        <button class="icon-btn" id="settingsBtn" aria-label="设置">⚙︎</button>
+        <button class="sync-pill" id="syncBtn" type="button">ローカル</button>
+        <button class="icon-btn" id="settingsBtn" aria-label="設定">⚙︎</button>
       </div>
     </header>
 
@@ -30,67 +30,73 @@
       <section class="hero-card">
         <div>
           <span class="tag">今日</span>
-          <h2 id="heroTitle">今天学什么</h2>
-          <p id="heroSub">完成一项，就少一项。</p>
+          <h2 id="heroTitle">今日の学習</h2>
+          <p id="heroSub">ひとつずつ進めよう。</p>
         </div>
-        <div class="study-buddy" aria-hidden="true">
-          <span class="buddy-face"></span>
-          <span class="buddy-arm left"></span>
-          <span class="buddy-arm right"></span>
-          <span class="buddy-leg left"></span>
-          <span class="buddy-leg right"></span>
+        <div class="study-charm" aria-hidden="true">
+          <span class="charm-card kana">あ</span>
+          <span class="charm-card book">本</span>
+          <span class="charm-dot"></span>
         </div>
         <div class="streak">
           <strong id="streakCount">0</strong>
-          <span>连续学习天</span>
+          <span>連続学習日</span>
         </div>
       </section>
 
       <section class="section">
         <div class="section-head">
-          <h3>今日任务</h3>
-          <button class="text-btn" id="addTaskBtn">+ 临时任务</button>
+          <h3>今日のおすすめ</h3>
+          <button class="text-btn" id="addTaskBtn">+ タスク</button>
         </div>
-        <div id="taskList" class="task-list"></div>
+        <div id="recommendedTaskList" class="task-list"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h3>今週のタスク</h3>
+          <span class="week-note" id="weekTaskNote"></span>
+        </div>
+        <div id="weekTaskList" class="task-list"></div>
       </section>
 
       <section class="grid-2">
         <article class="card">
           <div class="section-head compact">
-            <h3>《综合日语》进度</h3>
-            <button class="text-btn" id="editLessonBtn">编辑</button>
+            <h3>総合日本語の進捗</h3>
+            <button class="text-btn" id="editLessonBtn">編集</button>
           </div>
-          <p class="lesson-main">第 <strong id="lessonNumber">1</strong> 课</p>
+          <p class="lesson-main">第 <strong id="lessonNumber">1</strong> 課</p>
           <div class="progress"><span id="lessonProgressBar"></span></div>
           <div id="lessonChecks" class="mini-checks"></div>
         </article>
 
         <article class="card">
-          <h3>今日词汇</h3>
-          <div class="stat-row"><span>新词</span><strong><span id="newWordsDone">0</span>/<span id="newWordsGoal">10</span></strong></div>
-          <div class="stat-row"><span>复习</span><strong><span id="reviewWordsDone">0</span>/<span id="reviewWordsGoal">10</span></strong></div>
+          <h3>今日の語彙</h3>
+          <div class="stat-row"><span>新出語</span><strong><span id="newWordsDone">0</span>/<span id="newWordsGoal">10</span></strong></div>
+          <div class="stat-row"><span>復習</span><strong><span id="reviewWordsDone">0</span>/<span id="reviewWordsGoal">10</span></strong></div>
           <div class="button-row">
-            <button class="small-btn" id="logWordsBtn">记录</button>
-            <button class="small-btn ghost" id="vocabBtn">词库</button>
+            <button class="small-btn" id="logWordsBtn">記録</button>
+            <button class="small-btn ghost" id="vocabBtn">語彙</button>
           </div>
         </article>
       </section>
 
       <section class="card">
         <div class="section-head compact">
-          <h3>本周听力</h3>
-          <button class="text-btn" id="logListeningBtn">+ 记录</button>
+          <h3>今週のリスニング</h3>
+          <button class="text-btn" id="logListeningBtn">+ 記録</button>
         </div>
         <div id="listeningStats" class="listen-grid"></div>
       </section>
 
       <section class="card weekend-card" id="weekendTestCard">
         <div>
-          <span class="tag">周末</span>
-          <h3>本周单词测试</h3>
-          <p>日→中、中→日、听音辨词、简单语境。</p>
+          <span class="tag">週末</span>
+          <h3>今週の単語テスト</h3>
+          <p>日→中、中→日、聞き取り、短い文脈。</p>
         </div>
-        <button class="primary-btn" id="startTestBtn">开始测试</button>
+        <button class="primary-btn" id="startTestBtn">テスト開始</button>
       </section>
 
       <section class="card">
@@ -99,27 +105,27 @@
           <h3 id="calendarTitle"></h3>
           <button class="icon-btn" id="nextMonthBtn">›</button>
         </div>
-        <div class="weekdays"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div>
+        <div class="weekdays"><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span><span>日</span></div>
         <div id="calendar" class="calendar"></div>
       </section>
 
       <section class="grid-2">
         <article class="card center">
-          <span class="muted">本周完成率</span>
+          <span class="muted">今週の達成率</span>
           <strong class="big" id="weekRate">0%</strong>
         </article>
         <article class="card center">
-          <span class="muted">已掌握词汇</span>
+          <span class="muted">覚えた語彙</span>
           <strong class="big" id="masteredWords">0</strong>
         </article>
       </section>
     </main>
 
     <nav class="bottom-nav">
-      <button class="nav-btn active" data-scroll="top">今天</button>
-      <button class="nav-btn" data-scroll="calendar">日历</button>
-      <button class="nav-btn" id="quickTestBtn">测试</button>
-      <button class="nav-btn" id="backupBtn">备份</button>
+      <button class="nav-btn active" data-scroll="top">今日</button>
+      <button class="nav-btn" data-scroll="calendar">カレンダー</button>
+      <button class="nav-btn" id="quickTestBtn">テスト</button>
+      <button class="nav-btn" id="backupBtn">バックアップ</button>
     </nav>
   </div>
 
