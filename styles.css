@@ -47,7 +47,7 @@ button{cursor:pointer}
 }
 .eyebrow{margin:0;color:var(--muted);font-size:13px}
 .top-actions{display:flex;align-items:center;gap:8px}
-.sync-pill{
+.sync-pill,.lang-toggle{
   border:1px solid var(--line);
   border-radius:999px;
   background:var(--card);
@@ -58,6 +58,7 @@ button{cursor:pointer}
   font-weight:850;
   min-width:58px;
 }
+.lang-toggle{color:var(--accent);background:#fff7dc;border-color:#f3d983;min-width:54px}
 .sync-pill.online{color:var(--accent);background:var(--accent-soft);border-color:#ded0ff}
 .sync-pill.pending{color:var(--warn);background:#fff2dc;border-color:#f4d6a7}
 .sync-pill.error{color:var(--danger);background:#ffe6ed;border-color:#f4c8d4}
