@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="ja">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -10,7 +10,7 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="apple-touch-icon" href="icon-192.png" />
   <link rel="icon" href="icon-192.png" />
-  <link rel="stylesheet" href="styles.css?v=12" />
+  <link rel="stylesheet" href="styles.css?v=13" />
   <title>日本語ノート</title>
 </head>
 <body>
@@ -18,9 +18,10 @@
     <header class="topbar">
       <div>
         <p class="eyebrow" id="todayLabel"></p>
-        <h1>日本語ノート</h1>
+        <h1 id="appTitle">日本語ノート</h1>
       </div>
       <div class="top-actions">
+        <button class="lang-toggle" id="langToggleBtn" type="button">中文</button>
         <button class="sync-pill" id="syncBtn" type="button">ローカル</button>
         <button class="icon-btn" id="settingsBtn" aria-label="設定">⚙︎</button>
       </div>
@@ -29,12 +30,12 @@
     <main>
       <section class="hero-card">
         <div>
-          <span class="tag">今日</span>
+          <span class="tag" id="todayTag">今日</span>
           <h2 id="heroTitle">今日の学習</h2>
           <p id="heroSub">ひとつずつ進めよう。</p>
         </div>
         <button class="practice-timer" id="practiceTimerBtn" type="button" aria-pressed="false">
-          <span class="practice-label">今日の練習</span>
+          <span class="practice-label" id="practiceLabel">今日の練習</span>
           <strong id="practiceTimerTime">00:00:00</strong>
           <span class="practice-status" id="practiceTimerStatus">タップして開始</span>
         </button>
@@ -42,7 +43,7 @@
 
       <section class="section">
         <div class="section-head">
-          <h3>今日のおすすめ</h3>
+          <h3 id="recommendedTitle">今日のおすすめ</h3>
           <button class="text-btn" id="addTaskBtn">+ タスク</button>
         </div>
         <div id="recommendedTaskList" class="task-list"></div>
@@ -50,7 +51,7 @@
 
       <section class="section">
         <div class="section-head">
-          <h3>今週のタスク</h3>
+          <h3 id="weekTitle">今週のタスク</h3>
           <span class="week-note" id="weekTaskNote"></span>
         </div>
         <div id="weekTaskList" class="task-list"></div>
@@ -59,18 +60,18 @@
       <section class="grid-2">
         <article class="card">
           <div class="section-head compact">
-            <h3>総合日本語の進捗</h3>
+            <h3 id="lessonTitle">総合日本語の進捗</h3>
             <button class="text-btn" id="editLessonBtn">編集</button>
           </div>
-          <p class="lesson-main">第 <strong id="lessonNumber">1</strong> 課</p>
+          <p class="lesson-main"><span id="lessonPrefix">第</span> <strong id="lessonNumber">1</strong> <span id="lessonSuffix">課</span></p>
           <div class="progress"><span id="lessonProgressBar"></span></div>
           <div id="lessonChecks" class="mini-checks"></div>
         </article>
 
         <article class="card">
-          <h3>今日の語彙</h3>
-          <div class="stat-row"><span>新出語</span><strong><span id="newWordsDone">0</span>/<span id="newWordsGoal">10</span></strong></div>
-          <div class="stat-row"><span>復習</span><strong><span id="reviewWordsDone">0</span>/<span id="reviewWordsGoal">10</span></strong></div>
+          <h3 id="vocabTitle">今日の語彙</h3>
+          <div class="stat-row"><span id="newWordsLabel">新出語</span><strong><span id="newWordsDone">0</span>/<span id="newWordsGoal">10</span></strong></div>
+          <div class="stat-row"><span id="reviewWordsLabel">復習</span><strong><span id="reviewWordsDone">0</span>/<span id="reviewWordsGoal">10</span></strong></div>
           <div class="button-row">
             <button class="small-btn" id="logWordsBtn">記録</button>
             <button class="small-btn ghost" id="vocabBtn">語彙</button>
@@ -80,7 +81,7 @@
 
       <section class="card">
         <div class="section-head compact">
-          <h3>今週のリスニング</h3>
+          <h3 id="listeningTitle">今週のリスニング</h3>
           <button class="text-btn" id="logListeningBtn">+ 記録</button>
         </div>
         <div id="listeningStats" class="listen-grid"></div>
@@ -88,9 +89,9 @@
 
       <section class="card weekend-card" id="weekendTestCard">
         <div>
-          <span class="tag">週末</span>
-          <h3>今週の単語テスト</h3>
-          <p>日→中、中→日、聞き取り、短い文脈。</p>
+          <span class="tag" id="weekendTag">週末</span>
+          <h3 id="weekendTitle">今週の単語テスト</h3>
+          <p id="weekendDesc">日→中、中→日、聞き取り、短い文脈。</p>
         </div>
         <button class="primary-btn" id="startTestBtn">テスト開始</button>
       </section>
@@ -107,19 +108,19 @@
 
       <section class="grid-2">
         <article class="card center">
-          <span class="muted">今週の達成率</span>
+          <span class="muted" id="weekRateLabel">今週の達成率</span>
           <strong class="big" id="weekRate">0%</strong>
         </article>
         <article class="card center">
-          <span class="muted">覚えた語彙</span>
+          <span class="muted" id="masteredWordsLabel">覚えた語彙</span>
           <strong class="big" id="masteredWords">0</strong>
         </article>
       </section>
     </main>
 
     <nav class="bottom-nav">
-      <button class="nav-btn active" data-scroll="top">今日</button>
-      <button class="nav-btn" data-scroll="calendar">カレンダー</button>
+      <button class="nav-btn active" id="navToday" data-scroll="top">今日</button>
+      <button class="nav-btn" id="navCalendar" data-scroll="calendar">カレンダー</button>
       <button class="nav-btn" id="quickTestBtn">テスト</button>
       <button class="nav-btn" id="backupBtn">バックアップ</button>
     </nav>
@@ -145,8 +146,8 @@
       loadScript('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2')
         .catch(function(){return loadScript('https://unpkg.com/@supabase/supabase-js@2');})
         .catch(function(){window.JP_STUDY_SUPABASE_SDK_ERROR=true;})
-        .then(function(){return loadScript('supabase-config.js?v=12');})
-        .then(function(){return loadScript('app.js?v=12');});
+        .then(function(){return loadScript('supabase-config.js?v=13');})
+        .then(function(){return loadScript('app.js?v=13');});
     })();
   </script>
 </body>
