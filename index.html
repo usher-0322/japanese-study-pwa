@@ -10,7 +10,7 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="apple-touch-icon" href="icon-192.png" />
   <link rel="icon" href="icon-192.png" />
-  <link rel="stylesheet" href="styles.css?v=13" />
+  <link rel="stylesheet" href="styles.css?v=14" />
   <title>日本語ノート</title>
 </head>
 <body>
@@ -146,8 +146,8 @@
       loadScript('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2')
         .catch(function(){return loadScript('https://unpkg.com/@supabase/supabase-js@2');})
         .catch(function(){window.JP_STUDY_SUPABASE_SDK_ERROR=true;})
-        .then(function(){return loadScript('supabase-config.js?v=13');})
-        .then(function(){return loadScript('app.js?v=13');});
+        .then(function(){return loadScript('supabase-config.js?v=14');})
+        .then(function(){return loadScript('app.js?v=14');});
     })();
   </script>
 </body>
