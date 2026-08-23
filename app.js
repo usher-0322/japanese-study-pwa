@@ -39,7 +39,7 @@ const I18N={
   testNeedVocab:'至少需要4个词汇。',testTitle:'本周单词测试',answerMeaning:'中文意思',answerJapanese:'输入日语',listeningQuestion:'听音辨词',play:'播放',heardWord:'听到的词',contextQuestion:'填入符合“{meaning}”的词：<br><br>今天学习 ______ 。',answer:'答案',submit:'提交',testDone:'测试完成',wrongSummary:'错了 {count} 个词，下次复习会优先出现。',done:'完成',speechUnsupported:'当前浏览器不支持语音朗读。'
  }
 };
-const TEXT_ZH={'単語':'单词','文法①':'语法①','文法②':'语法②','本文':'课文','本文リスニング':'课文听力','音読':'跟读','月':'一','火':'二','水':'三','木':'四','金':'五','土':'六','日':'日','教科書':'教材','文法':'语法','リスニング':'听力','シャドーイング':'跟读','復習':'复习','会話':'会话','テスト':'测试','追加タスク':'追加任务','月曜：新しい単語と本文':'周一：新词与课文','火曜：復習と文法':'周二：复习与语法','水曜：精聴と音読':'周三：精听与朗读','木曜：次の小節へ':'周四：推进下一小节','金曜：一週間の整理':'周五：整理本周内容','土曜：週末テスト':'周六：周末测试','日曜：弱点補強':'周日：补强弱点','課外リスニング':'课外听力','好きな素材を15分聞く':'选择喜欢的材料听15分钟','新出語10個、本文を15分、通勤で本文を聞く':'新词10个、课文15分钟、通勤听课文','昨日の単語復習、文法1〜2項目、例文を5つ作る':'复习昨天的单词、语法1到2项、造5个例句','本文を精聴し、聞き取れない所を確認、音読5回':'精听课文，确认没听懂的地方，朗读5遍','新出語10個、総合日本語の次の小節、短い泛聴':'新词10个、综合日语下一小节、短泛听','単語・文法・本文リスニングを軽く総復習':'轻复习单词、语法、课文听力','単語テスト、会話練習、短い動画の精聴':'单词测试、会话练习、短视频精听','未消化の弱点だけ補強。終わらなくても翌週へ進む':'只补强未消化弱点。没完成也进入下周','泛聴':'泛听','精聴':'精听'};
+const TEXT_ZH={'単語':'单词','文法①':'语法①','文法②':'语法②','本文':'课文','本文リスニング':'课文听力','音読':'跟读','月':'一','火':'二','水':'三','木':'四','金':'五','土':'六','日':'日','教科書':'教材','文法':'语法','リスニング':'听力','シャドーイング':'跟读','復習':'复习','会話':'会话','テスト':'测试','追加タスク':'追加任务','月曜：新しい単語と本文':'周一：新词与课文','火曜：復習と文法':'周二：复习与语法','水曜：精聴と音読':'周三：精听与朗读','木曜：次の小節へ':'周四：推进下一小节','金曜：一週間の整理':'周五：整理本周内容','土曜：週末テスト':'周六：周末测试','日曜：弱点補強':'周日：补强弱点','課外リスニング':'课外听力','好きな素材を15分聞く':'选择喜欢的材料听15分钟','本文の精読とディクテーション':'课文精读与听写','本文を精読し、1段落を聞き取り、原文と照合して訂正する':'精读课文，听写1个段落，对照原文订正','新出語の学習':'新词汇学习','新出語10〜15語：読み・意味・例文を確認する':'学习10到15个新词，确认读音、意思和例句','文法と練習':'语法及练习','文法1〜2項目を学び、教科書問題と自作文3つを行う':'学习1到2项语法，完成教材练习并自造3个句子','単語整理とディクテーション':'单词整理与听写','今週の単語を整理し、漢字・仮名・意味を聞き取って書く':'整理本周单词，听写汉字、假名和意思','課外リスニングとシャドーイング':'课外听力与跟读','課外素材を15〜20分聞き、3〜5文を繰り返して音読する':'听15到20分钟课外材料，选3到5句反复跟读','新出語10個、本文を15分、通勤で本文を聞く':'新词10个、课文15分钟、通勤听课文','昨日の単語復習、文法1〜2項目、例文を5つ作る':'复习昨天的单词、语法1到2项、造5个例句','本文を精聴し、聞き取れない所を確認、音読5回':'精听课文，确认没听懂的地方，朗读5遍','新出語10個、総合日本語の次の小節、短い泛聴':'新词10个、综合日语下一小节、短泛听','単語・文法・本文リスニングを軽く総復習':'轻复习单词、语法、课文听力','単語テスト、会話練習、短い動画の精聴':'单词测试、会话练习、短视频精听','未消化の弱点だけ補強。終わらなくても翌週へ進む':'只补强未消化弱点。没完成也进入下周','泛聴':'泛听','精聴':'精听'};
 function lang(){return data?.settings?.language==='zh'?'zh':'ja'}
 function t(key,vars={}){let value=(I18N[lang()]&&I18N[lang()][key])||I18N.ja[key]||key;Object.entries(vars).forEach(([k,v])=>value=value.replaceAll(`{${k}}`,v));return value}
 function trText(value){return lang()==='zh'?(TEXT_ZH[value]||value):value}
@@ -119,25 +119,23 @@ function createSync(){
 function weeklyTemplate(startKey){
  const days=['月','火','水','木','金','土','日'];
  const rows=[
-  ['mon','月曜：新しい単語と本文','単語','新出語10個、本文を15分、通勤で本文を聞く',0],
-  ['tue','火曜：復習と文法','文法','昨日の単語復習、文法1〜2項目、例文を5つ作る',1],
-  ['wed','水曜：精聴と音読','リスニング','本文を精聴し、聞き取れない所を確認、音読5回',2],
-  ['thu','木曜：次の小節へ','教科書','新出語10個、総合日本語の次の小節、短い泛聴',3],
-  ['extraListen','課外リスニング','リスニング','好きな素材を15分聞く',3],
-  ['fri','金曜：一週間の整理','復習','単語・文法・本文リスニングを軽く総復習',4],
-  ['sat','土曜：週末テスト','テスト','単語テスト、会話練習、短い動画の精聴',5],
-  ['sun','日曜：弱点補強','復習','未消化の弱点だけ補強。終わらなくても翌週へ進む',6]
+  ['textStudy','本文の精読とディクテーション','教科書','本文を精読し、1段落を聞き取り、原文と照合して訂正する',0],
+  ['newVocab','新出語の学習','単語','新出語10〜15語：読み・意味・例文を確認する',1],
+  ['grammarPractice','文法と練習','文法','文法1〜2項目を学び、教科書問題と自作文3つを行う',2],
+  ['vocabDictation','単語整理とディクテーション','単語','今週の単語を整理し、漢字・仮名・意味を聞き取って書く',3],
+  ['extraListening','課外リスニングとシャドーイング','リスニング','課外素材を15〜20分聞き、3〜5文を繰り返して音読する',4]
  ];
- return {id:startKey,created:todayKey(),tasks:rows.map(([id,title,type,meta,scheduledDay])=>({id:`${startKey}-${id}`,title,type,meta,scheduledDay,dayName:days[scheduledDay],done:false,created:startKey}))};
+ return {id:startKey,created:todayKey(),templateVersion:2,tasks:rows.map(([id,title,type,meta,scheduledDay])=>({id:`${startKey}-${id}`,title,type,meta,scheduledDay,dayName:days[scheduledDay],done:false,created:startKey}))};
 }
 function ensureToday(){ensureWeek()}
 function ensureWeek(d=new Date()){
  const id=weekId(d);
  data.weekPlans=data.weekPlans||{};
- if(data.weekPlans[id]){
-   const plan=data.weekPlans[id],extraId=`${id}-extraListen`;
-   if(!(plan.tasks||[]).some(t=>t.id===extraId)){plan.tasks=plan.tasks||[];plan.tasks.push({id:extraId,title:'課外リスニング',type:'リスニング',meta:'好きな素材を15分聞く',scheduledDay:3,dayName:'木',done:false,created:id});save()}
-   return plan;
+ const existing=data.weekPlans[id];
+ if(existing&&existing.templateVersion===2)return existing;
+ if(existing){
+   const custom=(existing.tasks||[]).filter(t=>String(t.id||'').startsWith('custom-'));
+   const refreshed=weeklyTemplate(id);refreshed.tasks.push(...custom);data.weekPlans[id]=refreshed;save();return refreshed;
  }
  data.weekPlans[id]=weeklyTemplate(id);
  save();
