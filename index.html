@@ -10,7 +10,7 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="apple-touch-icon" href="icon-192.png" />
   <link rel="icon" href="icon-192.png" />
-  <link rel="stylesheet" href="styles.css?v=14" />
+  <link rel="stylesheet" href="styles.css?v=15" />
   <title>日本語ノート</title>
 </head>
 <body>
@@ -79,7 +79,7 @@
         </article>
       </section>
 
-      <section class="card">
+      <section class="card" hidden aria-hidden="true">
         <div class="section-head compact">
           <h3 id="listeningTitle">今週のリスニング</h3>
           <button class="text-btn" id="logListeningBtn">+ 記録</button>
@@ -98,10 +98,11 @@
 
       <section class="card">
         <div class="calendar-head">
-          <button class="icon-btn" id="prevMonthBtn">‹</button>
+          <button class="icon-btn" id="prevMonthBtn" aria-label="前月">‹</button>
           <h3 id="calendarTitle"></h3>
-          <button class="icon-btn" id="nextMonthBtn">›</button>
+          <button class="icon-btn" id="nextMonthBtn" aria-label="次月">›</button>
         </div>
+        <div class="calendar-study-summary" id="calendarStudySummary" aria-live="polite"></div>
         <div class="weekdays"><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span><span>日</span></div>
         <div id="calendar" class="calendar"></div>
       </section>
@@ -146,8 +147,8 @@
       loadScript('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2')
         .catch(function(){return loadScript('https://unpkg.com/@supabase/supabase-js@2');})
         .catch(function(){window.JP_STUDY_SUPABASE_SDK_ERROR=true;})
-        .then(function(){return loadScript('supabase-config.js?v=14');})
-        .then(function(){return loadScript('app.js?v=14');});
+        .then(function(){return loadScript('supabase-config.js?v=15');})
+        .then(function(){return loadScript('app.js?v=15');});
     })();
   </script>
 </body>

@@ -13,7 +13,7 @@ const I18N={
  ja:{
   appTitle:'日本語ノート',local:'ローカル',settings:'設定',todayTag:'今日',heroTitle:'今日の学習',heroSub:'ひとつずつ進めよう。',practiceLabel:'今日の練習',practiceStart:'タップして開始',practiceStop:'計測中・タップして停止',langToggle:'中文',
   recommendedTitle:'今日のおすすめ',addTask:'+ タスク',weekTitle:'今週のタスク',lessonTitle:'総合日本語の進捗',edit:'編集',vocabTitle:'今日の語彙',newWords:'新出語',review:'復習',record:'記録',vocab:'語彙',listeningTitle:'今週のリスニング',addRecord:'+ 記録',
-  weekendTag:'週末',weekendTitle:'今週の単語テスト',weekendDesc:'日→中、中→日、聞き取り、短い文脈。',startTest:'テスト開始',calendar:'カレンダー',test:'テスト',backup:'バックアップ',weekRate:'今週の達成率',masteredWords:'覚えた語彙',
+  weekendTag:'週末',weekendTitle:'今週の単語テスト',weekendDesc:'日→中、中→日、聞き取り、短い文脈。',startTest:'テスト開始',calendar:'カレンダー',test:'テスト',backup:'バックアップ',weekRate:'今週の達成率',masteredWords:'覚えた語彙',monthStudied:'今月の学習',yearStudied:'今年の学習',
   emptyRecommended:'今日のおすすめは完了です。',emptyWeek:'今週のタスクはありません。',minute:'分',lessonPrefix:'第',lessonSuffix:'課',lessonAdvance:'第 {from} 課完了。第 {to} 課へ進みました。',
   statusLocal:'ローカル',statusLoggedOut:'未ログイン',statusPending:'同期待ち',statusSynced:'同期済み',statusOffline:'オフライン',statusError:'エラー',statusSyncing:'同期中',statusCheckEmail:'メール確認',
   settingsTitle:'設定',newWordsGoal:'毎日の新出語目標',reviewWordsGoal:'毎日の復習語目標',weekdayCap:'平日の目安時間（分）',cancel:'キャンセル',save:'保存',close:'閉じる',
@@ -27,7 +27,7 @@ const I18N={
  zh:{
   appTitle:'日语笔记',local:'本地',settings:'设置',todayTag:'今天',heroTitle:'今日学习',heroSub:'一步一步推进就好。',practiceLabel:'今日练习',practiceStart:'点击开始',practiceStop:'计时中・点击停止',langToggle:'日本語',
   recommendedTitle:'今日推荐',addTask:'+ 任务',weekTitle:'本周任务',lessonTitle:'综合日语进度',edit:'编辑',vocabTitle:'今日词汇',newWords:'新词',review:'复习',record:'记录',vocab:'词汇',listeningTitle:'本周听力',addRecord:'+ 记录',
-  weekendTag:'周末',weekendTitle:'本周单词测试',weekendDesc:'日译中、中译日、听音辨词、短语境。',startTest:'开始测试',calendar:'日历',test:'测试',backup:'备份',weekRate:'本周完成率',masteredWords:'已掌握词汇',
+  weekendTag:'周末',weekendTitle:'本周单词测试',weekendDesc:'日译中、中译日、听音辨词、短语境。',startTest:'开始测试',calendar:'日历',test:'测试',backup:'备份',weekRate:'本周完成率',masteredWords:'已掌握词汇',monthStudied:'本月已学',yearStudied:'本年已学',
   emptyRecommended:'今日推荐已完成。',emptyWeek:'本周暂无任务。',minute:'分钟',lessonPrefix:'第',lessonSuffix:'课',lessonAdvance:'第 {from} 课完成，已进入第 {to} 课。',
   statusLocal:'本地',statusLoggedOut:'未登录',statusPending:'待同步',statusSynced:'已同步',statusOffline:'离线',statusError:'异常',statusSyncing:'同步中',statusCheckEmail:'查收邮件',
   settingsTitle:'设置',newWordsGoal:'每日新词目标',reviewWordsGoal:'每日复习词目标',weekdayCap:'平日参考时长（分钟）',cancel:'取消',save:'保存',close:'关闭',
@@ -39,7 +39,7 @@ const I18N={
   testNeedVocab:'至少需要4个词汇。',testTitle:'本周单词测试',answerMeaning:'中文意思',answerJapanese:'输入日语',listeningQuestion:'听音辨词',play:'播放',heardWord:'听到的词',contextQuestion:'填入符合“{meaning}”的词：<br><br>今天学习 ______ 。',answer:'答案',submit:'提交',testDone:'测试完成',wrongSummary:'错了 {count} 个词，下次复习会优先出现。',done:'完成',speechUnsupported:'当前浏览器不支持语音朗读。'
  }
 };
-const TEXT_ZH={'単語':'单词','文法①':'语法①','文法②':'语法②','本文':'课文','本文リスニング':'课文听力','音読':'跟读','月':'一','火':'二','水':'三','木':'四','金':'五','土':'六','日':'日','教科書':'教材','文法':'语法','リスニング':'听力','シャドーイング':'跟读','復習':'复习','会話':'会话','テスト':'测试','追加タスク':'追加任务','月曜：新しい単語と本文':'周一：新词与课文','火曜：復習と文法':'周二：复习与语法','水曜：精聴と音読':'周三：精听与朗读','木曜：次の小節へ':'周四：推进下一小节','金曜：一週間の整理':'周五：整理本周内容','土曜：週末テスト':'周六：周末测试','日曜：弱点補強':'周日：补强弱点','新出語10個、本文を15分、通勤で本文を聞く':'新词10个、课文15分钟、通勤听课文','昨日の単語復習、文法1〜2項目、例文を5つ作る':'复习昨天的单词、语法1到2项、造5个例句','本文を精聴し、聞き取れない所を確認、音読5回':'精听课文，确认没听懂的地方，朗读5遍','新出語10個、総合日本語の次の小節、短い泛聴':'新词10个、综合日语下一小节、短泛听','単語・文法・本文リスニングを軽く総復習':'轻复习单词、语法、课文听力','単語テスト、会話練習、短い動画の精聴':'单词测试、会话练习、短视频精听','未消化の弱点だけ補強。終わらなくても翌週へ進む':'只补强未消化弱点。没完成也进入下周','泛聴':'泛听','精聴':'精听'};
+const TEXT_ZH={'単語':'单词','文法①':'语法①','文法②':'语法②','本文':'课文','本文リスニング':'课文听力','音読':'跟读','月':'一','火':'二','水':'三','木':'四','金':'五','土':'六','日':'日','教科書':'教材','文法':'语法','リスニング':'听力','シャドーイング':'跟读','復習':'复习','会話':'会话','テスト':'测试','追加タスク':'追加任务','月曜：新しい単語と本文':'周一：新词与课文','火曜：復習と文法':'周二：复习与语法','水曜：精聴と音読':'周三：精听与朗读','木曜：次の小節へ':'周四：推进下一小节','金曜：一週間の整理':'周五：整理本周内容','土曜：週末テスト':'周六：周末测试','日曜：弱点補強':'周日：补强弱点','課外リスニング':'课外听力','好きな素材を15分聞く':'选择喜欢的材料听15分钟','新出語10個、本文を15分、通勤で本文を聞く':'新词10个、课文15分钟、通勤听课文','昨日の単語復習、文法1〜2項目、例文を5つ作る':'复习昨天的单词、语法1到2项、造5个例句','本文を精聴し、聞き取れない所を確認、音読5回':'精听课文，确认没听懂的地方，朗读5遍','新出語10個、総合日本語の次の小節、短い泛聴':'新词10个、综合日语下一小节、短泛听','単語・文法・本文リスニングを軽く総復習':'轻复习单词、语法、课文听力','単語テスト、会話練習、短い動画の精聴':'单词测试、会话练习、短视频精听','未消化の弱点だけ補強。終わらなくても翌週へ進む':'只补强未消化弱点。没完成也进入下周','泛聴':'泛听','精聴':'精听'};
 function lang(){return data?.settings?.language==='zh'?'zh':'ja'}
 function t(key,vars={}){let value=(I18N[lang()]&&I18N[lang()][key])||I18N.ja[key]||key;Object.entries(vars).forEach(([k,v])=>value=value.replaceAll(`{${k}}`,v));return value}
 function trText(value){return lang()==='zh'?(TEXT_ZH[value]||value):value}
@@ -123,6 +123,7 @@ function weeklyTemplate(startKey){
   ['tue','火曜：復習と文法','文法','昨日の単語復習、文法1〜2項目、例文を5つ作る',1],
   ['wed','水曜：精聴と音読','リスニング','本文を精聴し、聞き取れない所を確認、音読5回',2],
   ['thu','木曜：次の小節へ','教科書','新出語10個、総合日本語の次の小節、短い泛聴',3],
+  ['extraListen','課外リスニング','リスニング','好きな素材を15分聞く',3],
   ['fri','金曜：一週間の整理','復習','単語・文法・本文リスニングを軽く総復習',4],
   ['sat','土曜：週末テスト','テスト','単語テスト、会話練習、短い動画の精聴',5],
   ['sun','日曜：弱点補強','復習','未消化の弱点だけ補強。終わらなくても翌週へ進む',6]
@@ -133,7 +134,11 @@ function ensureToday(){ensureWeek()}
 function ensureWeek(d=new Date()){
  const id=weekId(d);
  data.weekPlans=data.weekPlans||{};
- if(data.weekPlans[id])return data.weekPlans[id];
+ if(data.weekPlans[id]){
+   const plan=data.weekPlans[id],extraId=`${id}-extraListen`;
+   if(!(plan.tasks||[]).some(t=>t.id===extraId)){plan.tasks=plan.tasks||[];plan.tasks.push({id:extraId,title:'課外リスニング',type:'リスニング',meta:'好きな素材を15分聞く',scheduledDay:3,dayName:'木',done:false,created:id});save()}
+   return plan;
+ }
  data.weekPlans[id]=weeklyTemplate(id);
  save();
  return data.weekPlans[id];
@@ -142,7 +147,7 @@ function currentWeekTasks(){return ensureWeek().tasks||[]}
 function recommendedTasks(){const idx=dayIndex();return currentWeekTasks().filter(t=>t.scheduledDay<=idx&&!t.done)}
 function tasksForDateKey(k){const d=parseKey(k), plan=data.weekPlans?.[weekId(d)];if(plan)return (plan.tasks||[]).filter(t=>t.scheduledDay===dayIndex(d));return data.tasks[k]||[]}
 
-function render(){ensureToday();applyStaticTexts();renderHeader();renderPracticeTimer();renderTasks();renderLesson();renderWords();renderListening();renderWeekend();renderCalendar();renderSummary();renderSyncStatus()}
+function render(){ensureToday();applyStaticTexts();renderHeader();renderPracticeTimer();renderTasks();renderLesson();renderWords();renderWeekend();renderCalendar();renderSummary();renderSyncStatus()}
 function applyStaticTexts(){
  document.documentElement.lang=lang()==='zh'?'zh-CN':'ja';document.title=t('appTitle');
  setText('#appTitle','appTitle');setText('#todayTag','todayTag');setText('#heroTitle','heroTitle');setText('#heroSub','heroSub');setText('#practiceLabel','practiceLabel');setText('#langToggleBtn','langToggle');
@@ -152,9 +157,14 @@ function applyStaticTexts(){
 }
 function renderHeader(){const d=new Date();const days=lang()==='zh'?['日','一','二','三','四','五','六']:['日','月','火','水','木','金','土'];document.querySelector('#todayLabel').textContent=lang()==='zh'?`${d.getMonth()+1}月${d.getDate()}日 · 周${days[d.getDay()]}`:`${d.getMonth()+1}月${d.getDate()}日 · ${days[d.getDay()]}曜日`}
 function formatDuration(seconds){const s=Math.max(0,Math.floor(seconds));const h=String(Math.floor(s/3600)).padStart(2,'0'),m=String(Math.floor(s%3600/60)).padStart(2,'0'),sec=String(s%60).padStart(2,'0');return `${h}:${m}:${sec}`}
-function activePracticeSecondsForToday(){const timer=data.practiceTimer;if(!timer?.startedAt)return 0;const start=Date.parse(timer.startedAt);if(!Number.isFinite(start))return 0;const now=Date.now(),dayStart=new Date();dayStart.setHours(0,0,0,0);return Math.max(0,Math.floor((now-Math.max(start,dayStart.getTime()))/1000))}
-function todayPracticeSeconds(){return Number(data.logs.practice?.[todayKey()]||0)+activePracticeSecondsForToday()}
-function updatePracticeTimerDisplay(){const btn=document.querySelector('#practiceTimerBtn');if(!btn)return;const running=Boolean(data.practiceTimer?.startedAt);document.querySelector('#practiceTimerTime').textContent=formatDuration(todayPracticeSeconds());document.querySelector('#practiceTimerStatus').textContent=running?t('practiceStop'):t('practiceStart');btn.classList.toggle('running',running);btn.setAttribute('aria-pressed',String(running))}
+function activePracticeSecondsForDate(key){const timer=data.practiceTimer;if(!timer?.startedAt)return 0;const start=Date.parse(timer.startedAt);if(!Number.isFinite(start))return 0;const dayStart=parseKey(key),dayEnd=new Date(dayStart);dayEnd.setDate(dayEnd.getDate()+1);return Math.max(0,Math.floor((Math.min(Date.now(),dayEnd.getTime())-Math.max(start,dayStart.getTime()))/1000))}
+function practiceSecondsForDate(key){return Number(data.logs.practice?.[key]||0)+activePracticeSecondsForDate(key)}
+function todayPracticeSeconds(){return practiceSecondsForDate(todayKey())}
+function formatStudyShort(seconds){const min=Math.floor(seconds/60);if(seconds>0&&min===0)return '<1分';if(min<60)return `${min}分`;const h=Math.floor(min/60),m=min%60;return `${h}h${m?m+'m':''}`}
+function formatStudyTotal(seconds){const min=Math.floor(seconds/60),h=Math.floor(min/60),m=min%60;if(lang()==='zh')return h?`${h}小时${m?m+'分钟':''}`:`${m}分钟`;return h?`${h}時間${m?m+'分':''}`:`${m}分`}
+function sumPractice(prefix){return Object.entries(data.logs.practice||{}).reduce((sum,[key,value])=>sum+(key.startsWith(prefix)?Number(value||0):0),0)}
+function updateCalendarPracticeDisplay(){const today=todayKey();document.querySelectorAll('[data-study-date]').forEach(el=>{const key=el.dataset.studyDate,seconds=practiceSecondsForDate(key);el.textContent=formatStudyShort(seconds);el.hidden=seconds<=0});const summary=document.querySelector('#calendarStudySummary');if(summary){const month=`${calDate.getFullYear()}-${String(calDate.getMonth()+1).padStart(2,'0')}`,year=String(calDate.getFullYear()),activeMonth=today.startsWith(month)?activePracticeSecondsForDate(today):0,activeYear=today.startsWith(year)?activePracticeSecondsForDate(today):0;summary.innerHTML=`<span>${t('monthStudied')} <strong>${formatStudyTotal(sumPractice(month)+activeMonth)}</strong></span><span>${t('yearStudied')} <strong>${formatStudyTotal(sumPractice(year)+activeYear)}</strong></span>`}}
+function updatePracticeTimerDisplay(){const btn=document.querySelector('#practiceTimerBtn');if(!btn)return;const running=Boolean(data.practiceTimer?.startedAt);document.querySelector('#practiceTimerTime').textContent=formatDuration(todayPracticeSeconds());document.querySelector('#practiceTimerStatus').textContent=running?t('practiceStop'):t('practiceStart');btn.classList.toggle('running',running);btn.setAttribute('aria-pressed',String(running));updateCalendarPracticeDisplay()}
 function renderPracticeTimer(){updatePracticeTimerDisplay();if(!practiceTicker)practiceTicker=setInterval(updatePracticeTimerDisplay,1000)}
 function addPracticeSpan(start,end){data.logs.practice=data.logs.practice||{};let cursor=Math.max(0,start);while(cursor<end){const d=new Date(cursor),key=todayKey(d),next=new Date(d);next.setHours(24,0,0,0);const edge=Math.min(end,next.getTime());data.logs.practice[key]=Number(data.logs.practice[key]||0)+Math.max(0,Math.floor((edge-cursor)/1000));cursor=edge}}
 function togglePracticeTimer(){const timer=data.practiceTimer;if(timer?.startedAt){const start=Date.parse(timer.startedAt);if(Number.isFinite(start))addPracticeSpan(start,Date.now());data.practiceTimer=null}else{data.practiceTimer={startedAt:new Date().toISOString()}}save();renderPracticeTimer();renderSyncStatus()}
@@ -169,7 +179,7 @@ function renderListening(){const cats=[['本文リスニング',['本文リス�
 function renderWeekend(){const card=document.querySelector('#weekendTestCard');card.style.display=isWeekend()?'flex':'none'}
 
 let calDate=new Date(new Date().getFullYear(),new Date().getMonth(),1);
-function renderCalendar(){const title=document.querySelector('#calendarTitle'),box=document.querySelector('#calendar');title.textContent=`${calDate.getFullYear()}年 ${calDate.getMonth()+1}月`;document.querySelectorAll('.weekdays span').forEach((el,i)=>el.textContent=lang()==='zh'?['一','二','三','四','五','六','日'][i]:['月','火','水','木','金','土','日'][i]);box.innerHTML='';const first=new Date(calDate.getFullYear(),calDate.getMonth(),1);const start=new Date(first);start.setDate(first.getDate()-((first.getDay()+6)%7));for(let i=0;i<42;i++){const d=new Date(start);d.setDate(start.getDate()+i);const k=todayKey(d),ts=tasksForDateKey(k);const el=document.createElement('div');el.className='day';if(d.getMonth()!=calDate.getMonth())el.classList.add('other');if(k===todayKey())el.classList.add('today');if(ts.length&&ts.every(t=>t.done))el.classList.add('complete');else if(ts.some(t=>t.done))el.classList.add('partial');el.textContent=d.getDate();box.appendChild(el)}}
+function renderCalendar(){const title=document.querySelector('#calendarTitle'),box=document.querySelector('#calendar');title.textContent=`${calDate.getFullYear()}年 ${calDate.getMonth()+1}月`;document.querySelectorAll('.weekdays span').forEach((el,i)=>el.textContent=lang()==='zh'?['一','二','三','四','五','六','日'][i]:['月','火','水','木','金','土','日'][i]);box.innerHTML='';const first=new Date(calDate.getFullYear(),calDate.getMonth(),1);const start=new Date(first);start.setDate(first.getDate()-((first.getDay()+6)%7));for(let i=0;i<42;i++){const d=new Date(start);d.setDate(start.getDate()+i);const k=todayKey(d),ts=tasksForDateKey(k),seconds=practiceSecondsForDate(k);const el=document.createElement('div');el.className='day';if(d.getMonth()!=calDate.getMonth())el.classList.add('other');if(k===todayKey())el.classList.add('today');if(ts.length&&ts.every(t=>t.done))el.classList.add('complete');else if(ts.some(t=>t.done))el.classList.add('partial');el.innerHTML=`<span class="day-number">${d.getDate()}</span><span class="day-study" data-study-date="${k}" ${seconds>0?'':'hidden'}>${formatStudyShort(seconds)}</span>`;el.setAttribute('aria-label',`${d.getMonth()+1}月${d.getDate()}日${seconds>0?'、'+formatStudyTotal(seconds):''}`);box.appendChild(el)}updateCalendarPracticeDisplay()}
 function renderSummary(){const ts=currentWeekTasks();const done=ts.filter(t=>t.done).length;document.querySelector('#weekRate').textContent=(ts.length?Math.round(done/ts.length*100):0)+'%';document.querySelector('#masteredWords').textContent=data.vocab.filter(v=>v.mastery>=3).length}
 function calcStreak(){let n=0,d=new Date();for(let i=0;i<365;i++){const k=todayKey(d),ts=tasksForDateKey(k);if(ts&&ts.some(t=>t.done)){n++;d.setDate(d.getDate()-1)}else if(i===0){d.setDate(d.getDate()-1)}else break}return n}
 function openModal(html){const m=document.querySelector('#modal'),c=document.querySelector('#modalContent');c.innerHTML=html;if(!m.open)m.showModal();return c}

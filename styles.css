@@ -414,3 +414,5 @@ button{cursor:pointer}
 @media(max-width:520px){.practice-timer{grid-template-columns:auto 1fr}.practice-status{grid-column:1/-1;text-align:center;margin-top:-7px;margin-bottom:5px}.hero-card{min-height:170px}}
 
 @media(prefers-reduced-motion:reduce){.practice-timer{transition:none}.practice-timer:active{transform:none}}
+
+.calendar-study-summary{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:8px 0 2px;color:var(--muted);font-size:12px}.calendar-study-summary strong{color:var(--ink);font-variant-numeric:tabular-nums}.day{flex-direction:column;gap:2px;line-height:1.05}.day-number{font-weight:inherit}.day-study{max-width:100%;font-size:9px;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}.day.today .day-study,.day.complete .day-study{color:inherit}.day.partial:after{top:5px;right:5px;bottom:auto}@media(max-width:380px){.calendar{gap:4px}.day{border-radius:12px}.day-study{font-size:8px}.calendar-study-summary{gap:10px}}
