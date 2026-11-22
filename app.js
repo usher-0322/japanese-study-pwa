@@ -241,8 +241,48 @@ document.querySelector('#importInput').onchange=e=>{const f=e.target.files[0];if
 
 document.querySelector('#langToggleBtn').onclick=()=>{data.settings.language=lang()==='zh'?'ja':'zh';save();render()}
 document.querySelector('#practiceTimerBtn').onclick=togglePracticeTimer;
-document.addEventListener('visibilitychange',()=>{if(!document.hidden)updatePracticeTimerDisplay()});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)pauseVisiblePractice();else updatePracticeTimerDisplay()});
 if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));
 sync=createSync();
 sync.init();
 render();
+
+ 
+// Only time a session owned by this visible page; never resume an old timer.
+let visiblePracticeStart=null;
+function pauseVisiblePractice(){
+ if(visiblePracticeStart!==null){addPracticeSpan(visiblePracticeStart,Date.now());visiblePracticeStart=null;}
+ data.practiceTimer=null;save();updatePracticeTimerDisplay();
+}
+activePracticeSecondsForDate=function(key){
+ if(visiblePracticeStart===null)return 0;
+ const start=parseKey(key),end=new Date(start);end.setDate(end.getDate()+1);
+ return Math.max(0,Math.floor((Math.min(Date.now(),end.getTime())-Math.max(visiblePracticeStart,start.getTime()))/1000));
+};
+togglePracticeTimer=function(){
+ if(visiblePracticeStart!==null)pauseVisiblePractice();
+ else{visiblePracticeStart=Date.now();data.practiceTimer={startedAt:new Date().toISOString()};save();}
+ renderPracticeTimer();renderSyncStatus();
+};
+document.querySelector('#practiceTimerBtn').onclick=togglePracticeTimer;
+window.addEventListener('pagehide',pauseVisiblePractice);
+const originalTimerDisplay=updatePracticeTimerDisplay;
+updatePracticeTimerDisplay=function(){
+ if(visiblePracticeStart===null&&data.practiceTimer){data.practiceTimer=null;save();}
+ originalTimerDisplay();
+};
+const timerActions=document.createElement('div');timerActions.className='button-row';
+for(const all of [false,true]){
+ const button=document.createElement('button');button.type='button';button.className='small-btn ghost';
+ button.textContent=all?'清除全部计时':'清零今日';
+ button.onclick=()=>{
+ if(!confirm(all?'停止计时并清除全部学习时长？词汇、任务等内容会保留。':'停止计时并将今日学习时长清零？'))return;
+ localStorage.setItem(PRE_SYNC_BACKUP_PREFIX+Date.now()+'-before-timer-reset',JSON.stringify(data));
+ visiblePracticeStart=null;data.practiceTimer=null;
+ if(all)data.logs.practice={};else delete data.logs.practice[todayKey()];
+ save();render();
+ };
+ timerActions.appendChild(button);
+}
+document.querySelector('.hero-card').after(timerActions);
+updatePracticeTimerDisplay();
