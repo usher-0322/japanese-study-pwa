@@ -8,6 +8,7 @@ const defaultVocab=[
 let sync=null;
 let lessonAdvanceTimer=null;
 let practiceTicker=null;
+var visiblePracticeStart=null;
 
 const I18N={
  ja:{
@@ -249,7 +250,7 @@ render();
 
  
 // Only time a session owned by this visible page; never resume an old timer.
-let visiblePracticeStart=null;
+visiblePracticeStart=null;
 function pauseVisiblePractice(){
  if(visiblePracticeStart!==null){addPracticeSpan(visiblePracticeStart,Date.now());visiblePracticeStart=null;}
  data.practiceTimer=null;save();updatePracticeTimerDisplay();
